@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:SmartTradeFrontend.ViewModels"
+             x:Class="SmartTrade.Views.PaginaBuscador"
+             Title="PaginaBuscador">
+
+    <ScrollView>
+
+        <VerticalStackLayout>
+        <StackLayout>
+            <SearchBar x:Name="searchBar"
+                       Placeholder="Buscar..."
+                       Text="{Binding SearchText}"
+                       SearchCommand="{Binding SearchCommand}"
+                       SearchCommandParameter="{Binding Text, Source={x:Reference searchBar}}"
+                       HorizontalOptions="FillAndExpand"
+                       VerticalOptions="Start"
+                        Margin="10"/>
+        </StackLayout>
+
+
+        
+            <StackLayout>
+                <CollectionView ItemsSource="{Binding productosBuscados}" VerticalOptions="FillAndExpand">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Vertical"/>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame BackgroundColor="#70C5A6" HeightRequest="150" Padding="10" Margin="5">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image Source="{Binding imagenes}" Aspect="AspectFit"/>
+                                    <StackLayout Grid.Column="1" VerticalOptions="Center" Margin="10,0,0,0">
+                                        <Label Text="{Binding nombre}" FontSize="18" FontAttributes="Bold"/>
+                                        <Label Text="{Binding precio, StringFormat='Precio: {0:C2}'}"/>
+                                        <Label Text="{Binding valor, StringFormat='Valor: {0:F2}'}"/>
+                                    </StackLayout>
+                                </Grid>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+        
+    </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

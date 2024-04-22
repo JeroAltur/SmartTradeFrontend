@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="SmartTradeFrontend.Views.PaginaPrincipal"
+             Title="PaginaPrincipal">
+    <ContentPage.Behaviors>
+        <toolkit:EventToCommandBehavior Command="{Binding ListarAnunciosCommand}" EventName="Appearing" />
+    </ContentPage.Behaviors>
+    <ContentPage.Resources>
+        <toolkit:ItemTappedEventArgsConverter x:Key="ItemTappedEventsArgsConverter"/>
+    </ContentPage.Resources>
+
+    <VerticalStackLayout>
+
+        <!-- Barra de búsqueda fija en la parte superior -->
+        <SearchBar x:Name="searchBar"
+                   Placeholder="Buscar..."
+                   Text="{Binding SearchText}"
+                   SearchCommand="{Binding SearchCommand}"
+                   SearchCommandParameter="{Binding Text, Source={x:Reference searchBar}}"
+                   HorizontalOptions="FillAndExpand"
+                   VerticalOptions="Start"
+                   Margin="10" />
+
+        <!--Hay que añadir la del icono del carrito -->
+
+
+
+
+        <ScrollView >
+            <VerticalStackLayout Margin="20" Spacing="12">
+                <Label Text="Tendencias" FontSize="24" FontAttributes="Bold" HorizontalOptions="Start"/>
+                <Frame  BackgroundColor="#70C5A6" HeightRequest="150" Padding="0">
+                    <CollectionView ItemsSource ="{Binding Tendencias}" ItemsLayout="HorizontalList" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" FlowDirection="LeftToRight">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Padding="10">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Image Source="{Binding imagenes}" Aspect="AspectFit"/>
+                                    <Label Text="{Binding nombre}" Grid.Row="1" HorizontalOptions="Center" VerticalOptions="End"/>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </Frame>
+
+                <Label Text="Mejor valorados " FontSize="24" FontAttributes="Bold" HorizontalOptions="Start"/>
+                <Frame BackgroundColor="#70C5A6" HeightRequest="150" Padding="0">
+                    <CollectionView ItemsSource="{Binding MejorValorados}" ItemsLayout="HorizontalList"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" FlowDirection="LeftToRight">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Padding="10">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Image Source="{Binding imagenes}" Aspect="AspectFit"/>
+                                    <Label Text="{Binding nombre}" Grid.Row="1" HorizontalOptions="Center" VerticalOptions="End"/>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </Frame>
+
+                <Label Text="Comprados por IronMan" FontSize="24" FontAttributes="Bold" HorizontalOptions="Start"/>
+                <Frame BackgroundColor="#70C5A6" HeightRequest="150" Padding="0">
+                    <CollectionView ItemsSource="{Binding CompradosPorIronMan}" ItemsLayout="HorizontalList"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" FlowDirection="LeftToRight">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Padding="10">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Image Source="{Binding imagenes}" Aspect="AspectFit"/>
+                                    <Label Text="{Binding nombre}" Grid.Row="1" HorizontalOptions="Center" VerticalOptions="End"/>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </Frame>
+
+            </VerticalStackLayout>
+        </ScrollView>
+    </VerticalStackLayout>
+</ContentPage>

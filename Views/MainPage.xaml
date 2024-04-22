@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:SmartTradeFrontend.Views"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="SmartTradeFrontend.Views.MainPage"
+             Shell.NavBarIsVisible="False"
+       
+             Shell.TabBarBackgroundColor="Black"
+             Shell.TabBarTitleColor="Yellow"
+             Shell.TabBarUnselectedColor="White">
+  
+    
+    
+    
+    <!--Title="MainPage>"-->
+    <Shell.Behaviors>
+        <toolkit:StatusBarBehavior StatusBarColor="White" StatusBarStyle="DarkContent" />
+    </Shell.Behaviors>
+    <TabBar>
+        <!--Aquí para la pestaña en la que trabajeis cambiad la ruta del DataTemplate, así cargará la página, y poned un icono-->
+        <ShellContent Icon="casa"
+                      ContentTemplate="{DataTemplate views:PaginaPrincipal}"/>
+
+        <ShellContent Icon="persona"
+                      ContentTemplate="{DataTemplate views:PaginaPerfil}"/>
+
+        <ShellContent Icon="corazon"
+              ContentTemplate="{DataTemplate views:PaginaListaDeDeseos}"/>
+    
+        <ShellContent Icon="rayas"
+              ContentTemplate="{DataTemplate views:AgregarProducto}"/>
+
+        
+
+    </TabBar>
+</Shell>
