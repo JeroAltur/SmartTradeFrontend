@@ -11,8 +11,6 @@ namespace SmartTradeFrontend
     {
         public static MauiApp CreateMauiApp()
         {
-            SmartTradeServices servicio = new SmartTradeServices();
-
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
