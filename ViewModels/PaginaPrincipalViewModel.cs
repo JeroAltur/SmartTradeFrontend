@@ -5,6 +5,7 @@ using SmartTrade.Views;
 using SmartTradeFrontend.Services;
 using System.Windows.Input;
 using System.Collections.ObjectModel;
+using System.Runtime.CompilerServices;
 //using UIKit;
 
 namespace SmartTradeFrontend.ViewModels
@@ -36,12 +37,28 @@ namespace SmartTradeFrontend.ViewModels
             _navigation = navigation;
 
             //Inicializamos las colecciones
-            /*Tendencias = new ObservableCollection<Producto>(dataService.Tendencias());
-            MejorValorados = new ObservableCollection<Producto>(dataService.MejorValorado());
+            Tendencias = new ObservableCollection<Producto>();
+            Tendencia();
+
+            /*MejorValorados = new ObservableCollection<Producto>(dataService.MejorValorado());
             CompradosPorIronMan = new ObservableCollection<Producto>(dataService.CompradosPorIronman());*/
 
             SearchCommand = new RelayCommand(ExecuteSearch);
 
+        }
+
+        public async void Tendencia()
+        {
+            List<Producto> result;
+            result = await _dataService.Tendencias();
+
+            if (result.Count != null) 
+            {
+                foreach (var item in result)
+                {
+                    Tendencias.Add(item);
+                }
+            }
         }
 
         private async void ExecuteSearch()

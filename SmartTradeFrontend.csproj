@@ -57,21 +57,45 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\axe.png" />
+	  <None Remove="Resources\Images\casa.png" />
+	  <None Remove="Resources\Images\comida.png" />
+	  <None Remove="Resources\Images\corazon.png" />
+	  <None Remove="Resources\Images\disfrazdino.png" />
+	  <None Remove="Resources\Images\electronica.png" />
+	  <None Remove="Resources\Images\gafassol.png" />
+	  <None Remove="Resources\Images\iphone.png" />
+	  <None Remove="Resources\Images\manzanaroja.png" />
+	  <None Remove="Resources\Images\persona.png" />
+	  <None Remove="Resources\Images\rayas.png" />
+	  <None Remove="Resources\Images\redmi11.png" />
+	  <None Remove="Resources\Images\redmi12.png" />
+	  <None Remove="Resources\Images\redmi13.png" />
+	  <None Remove="Resources\Images\redmi14.png" />
+	  <None Remove="Resources\Images\redmi15.png" />
+	  <None Remove="Resources\Images\redmia3.png" />
+	  <None Remove="Resources\Images\ropa.png" />
+	  <None Remove="Resources\Images\sudaderasupreme.png" />
+	  <None Remove="Resources\Images\teclado.png" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="CommunityToolkit.Maui" Version="6.0.0" />
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
 		<PackageReference Include="Microsoft.Maui.Controls" Version="8.0.14" />
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="8.0.20" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="Views\PaginaBuscador.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\AgregarProducto.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\MainPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\PaginaBuscador.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\PaginaListaDeDeseos.xaml">
