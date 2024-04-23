@@ -24,6 +24,9 @@ namespace SmartTradeFrontend.Services
             {
                 List<Producto> listaProducto;
                 HttpResponseMessage response = await Client.GetAsync("http://www.smarttrade.somee.com/Servicios/Tendencia");
+
+                var responsebody = await response.Content.ReadAsStringAsync();
+
                 response.EnsureSuccessStatusCode();
 
                 string responseJSON = await response.Content.ReadAsStringAsync();
