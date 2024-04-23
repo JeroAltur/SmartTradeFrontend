@@ -39,7 +39,6 @@ namespace SmartTradeFrontend.ViewModels
             //Inicializamos las colecciones
             Tendencias = new ObservableCollection<Producto>();
 
-            // Llamar a Tendencia() de forma síncrona
             Tendencia();
 
             /*MejorValorados = new ObservableCollection<Producto>(dataService.MejorValorado());
@@ -66,42 +65,6 @@ namespace SmartTradeFrontend.ViewModels
             string searchTerm = SearchText;
             await _navigation.PushAsync(new PaginaBuscador(searchTerm));
         }
-/*
-        [RelayCommand]
-        public async Task ListarTendencias()
-        {
-            var productos = _dataService.Tendencias();
-            foreach (var producto in productos)
-            {
-                Tendencias.Add(producto);
-            }
-
-        }
-
-        [RelayCommand]
-        public async Task ListarMejorValorados()
-        {
-            var productos = _dataService.MejorValorado();
-            foreach (var producto in productos)
-            {
-                MejorValorados.Add(producto);
-            }
-
-        }
-
-        */
-        /*
-                [RelayCommand]
-                public async Task ListarCompradosPorIronMan()
-                {
-                    var productos = _dataService.ObtenerCompradosPorIronMan();
-                    foreach (var producto in productos)
-                    {
-                        CompradosPorIronMan.Add(producto);
-                    }
-
-                }
-        */
 
     }
 }
