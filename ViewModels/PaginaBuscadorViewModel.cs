@@ -1,7 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using SmartTradeFrontend.Services;
 using SmartTradeFrontend.Models;
-using SmartTrade.Views;
+using SmartTradeFrontend.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;

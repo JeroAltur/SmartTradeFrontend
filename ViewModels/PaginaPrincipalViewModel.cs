@@ -1,7 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using SmartTradeFrontend.Models;
-using SmartTrade.Views;
+using SmartTradeFrontend.Views;
 using SmartTradeFrontend.Services;
 using System.Windows.Input;
 using System.Collections.ObjectModel;
@@ -38,21 +38,21 @@ namespace SmartTradeFrontend.ViewModels
 
             //Inicializamos las colecciones
             Tendencias = new ObservableCollection<Producto>();
+
+            // Llamar a Tendencia() de forma síncrona
             Tendencia();
 
             /*MejorValorados = new ObservableCollection<Producto>(dataService.MejorValorado());
             CompradosPorIronMan = new ObservableCollection<Producto>(dataService.CompradosPorIronman());*/
 
             SearchCommand = new RelayCommand(ExecuteSearch);
-
         }
 
         public async void Tendencia()
         {
-            List<Producto> result;
-            result = await _dataService.Tendencias();
+            List<Producto> result = await _dataService.Tendencias();
 
-            if (result.Count != null) 
+            if (result != null && result.Count > 0)
             {
                 foreach (var item in result)
                 {
@@ -64,7 +64,7 @@ namespace SmartTradeFrontend.ViewModels
         private async void ExecuteSearch()
         {
             string searchTerm = SearchText;
-            //await _navigation.PushAsync(new PaginaBuscador(searchTerm));
+            await _navigation.PushAsync(new PaginaBuscador(searchTerm));
         }
 /*
         [RelayCommand]
